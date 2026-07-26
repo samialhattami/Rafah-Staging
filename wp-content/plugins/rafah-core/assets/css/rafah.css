@@ -1,0 +1,1846 @@
+/**
+ * Rafah — Front-end design system.
+ * RTL-first via CSS logical properties (works for Arabic & English automatically).
+ */
+
+:root {
+	--rafah-primary: #bc945d;
+	--rafah-primary-dark: #a37f4c;
+	--rafah-secondary: #6b5840;
+	--rafah-secondary-dark: #52432f;
+	--rafah-bg: #e4dcd5;
+	--rafah-surface: #f7f3ee;
+	--rafah-white: #ffffff;
+	--rafah-ink: #2b241a;
+	--rafah-muted: #8a7d6a;
+	--rafah-line: rgba(107, 88, 64, 0.16);
+	--rafah-radius: 16px;
+	--rafah-radius-sm: 10px;
+	--rafah-shadow: 0 10px 40px -12px rgba(43, 36, 26, 0.18);
+	--rafah-shadow-lg: 0 24px 60px -18px rgba(43, 36, 26, 0.28);
+	--rafah-transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ------------------------------------------------------------- Buttons */
+
+.rafah-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	padding: 14px 30px;
+	border-radius: 999px;
+	font-weight: 600;
+	font-size: 15px;
+	line-height: 1;
+	text-decoration: none;
+	border: 1.5px solid transparent;
+	cursor: pointer;
+	transition: all var(--rafah-transition);
+	white-space: nowrap;
+}
+
+.rafah-btn--primary {
+	background: var(--rafah-primary);
+	color: var(--rafah-white);
+}
+
+.rafah-btn--primary:hover {
+	background: var(--rafah-primary-dark);
+	color: var(--rafah-white);
+	transform: translateY(-2px);
+	box-shadow: 0 12px 24px -8px rgba(188, 148, 93, 0.5);
+}
+
+.rafah-btn--secondary {
+	background: var(--rafah-secondary);
+	color: var(--rafah-white);
+}
+
+.rafah-btn--secondary:hover {
+	background: var(--rafah-secondary-dark);
+	color: var(--rafah-white);
+	transform: translateY(-2px);
+}
+
+.rafah-btn--ghost {
+	background: transparent;
+	color: var(--rafah-secondary);
+	border-color: currentColor;
+}
+
+.rafah-btn--ghost:hover {
+	background: var(--rafah-secondary);
+	color: var(--rafah-white);
+	border-color: var(--rafah-secondary);
+}
+
+.rafah-btn--light {
+	background: var(--rafah-white);
+	color: var(--rafah-secondary);
+}
+
+.rafah-btn--light:hover {
+	background: var(--rafah-bg);
+	color: var(--rafah-secondary-dark);
+}
+
+.rafah-btn--whatsapp {
+	background: #25d366;
+	color: #fff;
+}
+
+.rafah-btn--whatsapp:hover {
+	background: #1fb457;
+	color: #fff;
+	transform: translateY(-2px);
+}
+
+.rafah-btn svg {
+	width: 18px;
+	height: 18px;
+	fill: currentColor;
+}
+
+/* ------------------------------------------------------------- Section headers */
+
+.rafah-section-head {
+	max-width: 640px;
+	margin-bottom: 48px;
+}
+
+.rafah-section-head--center {
+	margin-inline: auto;
+	text-align: center;
+}
+
+.rafah-eyebrow {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	color: var(--rafah-primary);
+	font-size: 14px;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	margin-bottom: 14px;
+}
+
+.rafah-eyebrow::before {
+	content: "";
+	width: 34px;
+	height: 2px;
+	background: var(--rafah-primary);
+	border-radius: 2px;
+}
+
+.rafah-section-head__title {
+	font-size: clamp(28px, 4vw, 42px);
+	line-height: 1.25;
+	color: var(--rafah-secondary);
+	margin: 0 0 12px;
+	font-weight: 700;
+}
+
+.rafah-section-head__text {
+	color: var(--rafah-muted);
+	font-size: 17px;
+	line-height: 1.8;
+	margin: 0;
+}
+
+/* ------------------------------------------------------------- Badges */
+
+.rafah-badge {
+	display: inline-block;
+	padding: 6px 14px;
+	border-radius: 999px;
+	font-size: 12.5px;
+	font-weight: 700;
+	line-height: 1.2;
+	backdrop-filter: blur(6px);
+}
+
+.rafah-badge--featured {
+	background: var(--rafah-primary);
+	color: var(--rafah-white);
+}
+
+.rafah-badge--status {
+	background: rgba(255, 255, 255, 0.92);
+	color: var(--rafah-secondary);
+}
+
+/* ------------------------------------------------------------- Hero */
+
+.rafah-hero {
+	position: relative;
+	min-height: min(88vh, 860px);
+	display: flex;
+	align-items: center;
+	border-radius: 0;
+	overflow: hidden;
+	isolation: isolate;
+}
+
+.rafah-hero__bg,
+.rafah-hero__bg img {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	z-index: -2;
+}
+
+.rafah-hero__overlay {
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+	background: linear-gradient(
+		to top,
+		rgba(30, 24, 15, 0.82) 0%,
+		rgba(30, 24, 15, 0.45) 45%,
+		rgba(30, 24, 15, 0.25) 100%
+	);
+}
+
+.rafah-hero__inner {
+	width: min(1200px, 92%);
+	margin-inline: auto;
+	padding-block: 120px 90px;
+	color: var(--rafah-white);
+}
+
+.rafah-hero__eyebrow {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	background: rgba(188, 148, 93, 0.18);
+	border: 1px solid rgba(188, 148, 93, 0.55);
+	color: #e8cfa8;
+	padding: 8px 18px;
+	border-radius: 999px;
+	font-size: 14px;
+	font-weight: 600;
+	margin-bottom: 24px;
+	backdrop-filter: blur(8px);
+}
+
+.rafah-hero__title {
+	font-size: clamp(34px, 6vw, 64px);
+	line-height: 1.2;
+	font-weight: 800;
+	margin: 0 0 18px;
+	max-width: 15ch;
+	color: var(--rafah-white);
+}
+
+.rafah-hero__title em {
+	font-style: normal;
+	color: var(--rafah-primary);
+}
+
+.rafah-hero__text {
+	font-size: clamp(16px, 2vw, 19px);
+	line-height: 1.9;
+	max-width: 52ch;
+	color: rgba(255, 255, 255, 0.85);
+	margin: 0 0 34px;
+}
+
+.rafah-hero__actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 14px;
+}
+
+.rafah-hero__scroll {
+	position: absolute;
+	bottom: 28px;
+	inset-inline-start: 50%;
+	transform: translateX(-50%);
+	color: rgba(255, 255, 255, 0.7);
+	animation: rafah-bounce 2.2s infinite;
+}
+
+[dir="rtl"] .rafah-hero__scroll {
+	transform: translateX(50%);
+}
+
+@keyframes rafah-bounce {
+	0%, 100% { translate: 0 0; }
+	50% { translate: 0 8px; }
+}
+
+/* ------------------------------------------------------------- Grids */
+
+.rafah-grid {
+	display: grid;
+	gap: 28px;
+	grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+}
+
+.rafah-grid--agents {
+	grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
+
+/* ------------------------------------------------------------- Project card */
+
+.rafah-card {
+	background: var(--rafah-white);
+	border-radius: var(--rafah-radius);
+	overflow: hidden;
+	box-shadow: var(--rafah-shadow);
+	display: flex;
+	flex-direction: column;
+	transition: transform var(--rafah-transition), box-shadow var(--rafah-transition);
+}
+
+.rafah-card:hover {
+	transform: translateY(-6px);
+	box-shadow: var(--rafah-shadow-lg);
+}
+
+.rafah-card__media {
+	position: relative;
+	display: block;
+	aspect-ratio: 16 / 10;
+	overflow: hidden;
+}
+
+.rafah-card__media img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform 0.6s ease;
+}
+
+.rafah-card:hover .rafah-card__media img {
+	transform: scale(1.06);
+}
+
+.rafah-card__media .rafah-badge--featured {
+	position: absolute;
+	top: 14px;
+	inset-inline-start: 14px;
+	z-index: 3;
+}
+
+/* ---------------------------------------------- Status overlay (on the cover)
+   Shown for Sold / Coming Soon only. It sits ON the normal cover image and
+   never replaces it. Pure CSS, fully responsive (clamp-based), RTL-safe. */
+
+.rafah-status-overlay {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	pointer-events: none;
+	z-index: 2;
+}
+
+.rafah-status-overlay--sold {
+	background: rgba(43, 34, 24, 0.44);
+}
+
+.rafah-status-overlay--coming-soon {
+	background: rgba(43, 34, 24, 0.28);
+}
+
+.rafah-status-overlay__text {
+	padding: 0.5em 1.5em;
+	font-weight: 800;
+	font-size: clamp(13px, 3.4vw, 20px);
+	line-height: 1.15;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	text-align: center;
+	color: var(--rafah-white, #fff);
+	background: var(--rafah-secondary);
+	border-radius: 8px;
+	box-shadow: 0 10px 28px rgba(0, 0, 0, 0.32);
+	transform: rotate(-6deg);
+}
+
+.rafah-status-overlay--coming-soon .rafah-status-overlay__text {
+	background: var(--rafah-primary);
+	letter-spacing: 0.1em;
+}
+
+.rafah-card__body {
+	padding: 22px 24px 24px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	flex: 1;
+}
+
+.rafah-card__location {
+	color: var(--rafah-primary);
+	font-size: 13.5px;
+	font-weight: 600;
+}
+
+.rafah-card__title {
+	font-size: 21px;
+	line-height: 1.35;
+	margin: 0;
+	font-weight: 700;
+}
+
+.rafah-card__title a {
+	color: var(--rafah-secondary);
+	text-decoration: none;
+	transition: color var(--rafah-transition);
+}
+
+.rafah-card__title a:hover {
+	color: var(--rafah-primary);
+}
+
+.rafah-card__price {
+	display: flex;
+	align-items: baseline;
+	gap: 8px;
+	padding-top: 4px;
+}
+
+.rafah-card__price-label {
+	font-size: 12.5px;
+	color: var(--rafah-muted);
+}
+
+.rafah-card__price-value {
+	font-size: 19px;
+	font-weight: 800;
+	color: var(--rafah-primary);
+}
+
+.rafah-card__meta {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px 18px;
+	color: var(--rafah-muted);
+	font-size: 13.5px;
+	margin-top: auto;
+	padding-top: 4px;
+}
+
+/* Toggleable divider — the single separating line above the note/CTA. */
+.rafah-card__divider {
+	border: 0;
+	border-top: 1px solid var(--rafah-line);
+	margin: 14px 0 2px;
+	width: 100%;
+	height: 0;
+}
+
+/* Optional per-project card note (elegant line above the button). */
+.rafah-card__note {
+	margin: 2px 0 0;
+	font-size: 13px;
+	line-height: 1.5;
+	color: var(--rafah-secondary);
+	font-style: italic;
+}
+
+.rafah-card__cta {
+	margin-top: 14px;
+	align-self: flex-start;
+	padding: 11px 24px;
+	font-size: 14px;
+}
+
+/* ---------------------------------------------------- Card layout variants.
+   One renderer, four presentations. Data is identical; only the box changes. */
+
+/* Image Left / Image Right — media beside the content. */
+.rafah-card--image-left,
+.rafah-card--image-right {
+	flex-direction: row;
+}
+
+.rafah-card--image-right {
+	flex-direction: row-reverse;
+}
+
+.rafah-card--image-left .rafah-card__media,
+.rafah-card--image-right .rafah-card__media {
+	flex: 0 0 44%;
+	aspect-ratio: auto;
+	min-height: 100%;
+}
+
+.rafah-card--image-left .rafah-card__body,
+.rafah-card--image-right .rafah-card__body {
+	flex: 1 1 56%;
+}
+
+/* Premium Overlap — floating content card overlapping the image. */
+.rafah-card--overlap {
+	background: transparent;
+	box-shadow: none;
+	overflow: visible;
+}
+
+.rafah-card--overlap .rafah-card__media {
+	border-radius: var(--rafah-radius);
+	overflow: hidden;
+	box-shadow: var(--rafah-shadow);
+	aspect-ratio: 16 / 11;
+}
+
+.rafah-card--overlap .rafah-card__body {
+	position: relative;
+	z-index: 2;
+	margin: -52px 18px 0;
+	background: var(--rafah-white);
+	border-radius: var(--rafah-radius);
+	box-shadow: var(--rafah-shadow-lg);
+	flex: 0 0 auto;
+}
+
+.rafah-card--overlap:hover {
+	transform: none;
+	box-shadow: none;
+}
+
+.rafah-card--overlap:hover .rafah-card__media {
+	transform: translateY(-4px);
+	box-shadow: var(--rafah-shadow-lg);
+}
+
+/* Every layout collapses to a clean stacked card on small screens. */
+@media (max-width: 640px) {
+	.rafah-card--image-left,
+	.rafah-card--image-right {
+		flex-direction: column;
+	}
+
+	.rafah-card--image-left .rafah-card__media,
+	.rafah-card--image-right .rafah-card__media {
+		flex: none;
+		aspect-ratio: 16 / 10;
+		min-height: 0;
+	}
+
+	.rafah-card--overlap .rafah-card__body {
+		margin: -40px 12px 0;
+	}
+}
+
+/* ------------------------------------------------------------- Filter bar */
+
+.rafah-filter {
+	background: var(--rafah-white);
+	border-radius: var(--rafah-radius);
+	box-shadow: var(--rafah-shadow);
+	padding: 22px;
+	margin-bottom: 40px;
+}
+
+.rafah-filter__fields {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+	gap: 14px;
+}
+
+.rafah-filter select,
+.rafah-filter input[type="search"],
+.rafah-filter input[type="number"] {
+	width: 100%;
+	/* Astra forces height:40px + line-height:24px on form controls, which
+	   clips Arabic glyphs. Take full control of the box. */
+	height: auto !important;
+	min-height: 48px;
+	line-height: 1.5 !important;
+	padding: 11px 16px !important;
+	border: 1.5px solid var(--rafah-line);
+	border-radius: var(--rafah-radius-sm);
+	background-color: var(--rafah-surface);
+	color: var(--rafah-ink);
+	font-size: 14.5px;
+	transition: border-color var(--rafah-transition);
+	appearance: none;
+	text-overflow: ellipsis;
+}
+
+/* Custom dropdown arrow (appearance:none removes the native one) — RTL aware. */
+.rafah-filter select,
+.rafah-units-front__controls select {
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%236b5840' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+	background-position: left 14px center;
+	padding-inline-end: 16px !important;
+	padding-inline-start: 34px !important;
+}
+
+[dir="ltr"] .rafah-filter select,
+[dir="ltr"] .rafah-units-front__controls select {
+	background-position: right 14px center;
+}
+
+.rafah-filter select:focus,
+.rafah-filter input:focus {
+	outline: none;
+	border-color: var(--rafah-primary);
+	box-shadow: 0 0 0 3px rgba(188, 148, 93, 0.18);
+}
+
+.rafah-filter__actions {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+}
+
+.rafah-filter__reset {
+	background: none;
+	border: 0;
+	color: var(--rafah-muted);
+	font-size: 13.5px;
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.rafah-filter__count {
+	color: var(--rafah-muted);
+	font-size: 14px;
+	margin-top: 14px;
+}
+
+.rafah-results {
+	position: relative;
+	min-height: 120px;
+}
+
+.rafah-results.is-loading {
+	opacity: 0.45;
+	pointer-events: none;
+	filter: saturate(0.6);
+	transition: opacity 0.2s ease;
+}
+
+.rafah-no-results {
+	grid-column: 1 / -1;
+	text-align: center;
+	padding: 60px 20px;
+	color: var(--rafah-muted);
+	font-size: 17px;
+}
+
+.rafah-load-more-wrap {
+	text-align: center;
+	margin-top: 40px;
+}
+
+/* ------------------------------------------------------------- Stats */
+
+.rafah-stats {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: 24px;
+}
+
+.rafah-stat {
+	text-align: center;
+	padding: 38px 24px;
+	background: var(--rafah-white);
+	border-radius: var(--rafah-radius);
+	box-shadow: var(--rafah-shadow);
+	position: relative;
+	overflow: hidden;
+}
+
+.rafah-stat::after {
+	content: "";
+	position: absolute;
+	inset-inline-start: 0;
+	bottom: 0;
+	width: 100%;
+	height: 4px;
+	background: linear-gradient(90deg, var(--rafah-primary), var(--rafah-secondary));
+}
+
+.rafah-stat__value {
+	font-size: clamp(34px, 4vw, 48px);
+	font-weight: 800;
+	color: var(--rafah-primary);
+	line-height: 1.1;
+	display: flex;
+	align-items: baseline;
+	justify-content: center;
+	gap: 4px;
+}
+
+.rafah-stat__suffix {
+	font-size: 0.6em;
+	color: var(--rafah-secondary);
+}
+
+.rafah-stat__label {
+	margin-top: 10px;
+	color: var(--rafah-secondary);
+	font-weight: 600;
+	font-size: 15.5px;
+}
+
+/* ------------------------------------------------------------- Agent card */
+
+.rafah-agent-card {
+	background: var(--rafah-white);
+	border-radius: var(--rafah-radius);
+	overflow: hidden;
+	box-shadow: var(--rafah-shadow);
+	text-align: center;
+	transition: transform var(--rafah-transition), box-shadow var(--rafah-transition);
+}
+
+.rafah-agent-card:hover {
+	transform: translateY(-6px);
+	box-shadow: var(--rafah-shadow-lg);
+}
+
+.rafah-agent-card__photo {
+	display: block;
+	aspect-ratio: 1 / 1.05;
+	overflow: hidden;
+	background: var(--rafah-bg);
+}
+
+.rafah-agent-card__photo img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform 0.5s ease;
+}
+
+.rafah-agent-card:hover .rafah-agent-card__photo img {
+	transform: scale(1.05);
+}
+
+.rafah-agent-card__body {
+	padding: 20px 22px 24px;
+}
+
+.rafah-agent-card__name {
+	margin: 0 0 4px;
+	font-size: 19px;
+	font-weight: 700;
+}
+
+.rafah-agent-card__name a {
+	color: var(--rafah-secondary);
+	text-decoration: none;
+}
+
+.rafah-agent-card__name a:hover {
+	color: var(--rafah-primary);
+}
+
+.rafah-agent-card__position {
+	color: var(--rafah-muted);
+	font-size: 13.5px;
+	margin-bottom: 16px;
+}
+
+.rafah-agent-card__actions {
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+}
+
+.rafah-icon-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 42px;
+	height: 42px;
+	border-radius: 50%;
+	background: var(--rafah-surface);
+	color: var(--rafah-secondary);
+	transition: all var(--rafah-transition);
+}
+
+.rafah-icon-btn:hover {
+	background: var(--rafah-primary);
+	color: var(--rafah-white);
+	transform: translateY(-2px);
+}
+
+.rafah-icon-btn--whatsapp:hover {
+	background: #25d366;
+}
+
+.rafah-icon-btn svg {
+	width: 18px;
+	height: 18px;
+	fill: currentColor;
+}
+
+/* ------------------------------------------------------------- Testimonials */
+
+.rafah-testimonials {
+	display: grid;
+	gap: 28px;
+	grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+}
+
+.rafah-testimonial {
+	background: var(--rafah-white);
+	border-radius: var(--rafah-radius);
+	padding: 34px 30px 30px;
+	box-shadow: var(--rafah-shadow);
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 18px;
+}
+
+.rafah-testimonial__quote-mark {
+	font-size: 64px;
+	line-height: 0.5;
+	color: var(--rafah-primary);
+	opacity: 0.35;
+	font-family: Georgia, serif;
+}
+
+.rafah-testimonial__stars {
+	color: var(--rafah-primary);
+	letter-spacing: 3px;
+	font-size: 16px;
+}
+
+.rafah-testimonial__text {
+	color: var(--rafah-ink);
+	font-size: 15.5px;
+	line-height: 1.9;
+	margin: 0;
+	flex: 1;
+}
+
+.rafah-testimonial__author {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	border-top: 1px solid var(--rafah-line);
+	padding-top: 18px;
+}
+
+.rafah-testimonial__avatar img {
+	width: 52px;
+	height: 52px;
+	border-radius: 50%;
+	object-fit: cover;
+}
+
+.rafah-testimonial__name {
+	font-weight: 700;
+	color: var(--rafah-secondary);
+	font-size: 15px;
+}
+
+.rafah-testimonial__role {
+	color: var(--rafah-muted);
+	font-size: 13px;
+}
+
+/* ------------------------------------------------------------- FAQ */
+
+.rafah-faq {
+	max-width: 820px;
+	margin-inline: auto;
+}
+
+.rafah-faq__item {
+	background: var(--rafah-white);
+	border-radius: var(--rafah-radius-sm);
+	box-shadow: var(--rafah-shadow);
+	margin-bottom: 14px;
+	overflow: hidden;
+	border: 1px solid transparent;
+	transition: border-color var(--rafah-transition);
+}
+
+.rafah-faq__item[open] {
+	border-color: rgba(188, 148, 93, 0.4);
+}
+
+.rafah-faq__question {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 16px;
+	padding: 20px 26px;
+	cursor: pointer;
+	font-weight: 700;
+	color: var(--rafah-secondary);
+	font-size: 16.5px;
+	list-style: none;
+}
+
+.rafah-faq__question::-webkit-details-marker {
+	display: none;
+}
+
+.rafah-faq__question::after {
+	content: "+";
+	font-size: 24px;
+	color: var(--rafah-primary);
+	flex-shrink: 0;
+	transition: transform var(--rafah-transition);
+}
+
+.rafah-faq__item[open] .rafah-faq__question::after {
+	transform: rotate(45deg);
+}
+
+.rafah-faq__answer {
+	padding: 0 26px 22px;
+	color: var(--rafah-muted);
+	line-height: 1.9;
+	font-size: 15px;
+}
+
+/* ------------------------------------------------------------- CTA section */
+
+.rafah-cta {
+	position: relative;
+	border-radius: var(--rafah-radius);
+	overflow: hidden;
+	background: var(--rafah-secondary);
+	padding: clamp(48px, 7vw, 90px) clamp(24px, 6vw, 80px);
+	text-align: center;
+	isolation: isolate;
+}
+
+.rafah-cta__bg,
+.rafah-cta__bg img {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	z-index: -2;
+}
+
+.rafah-cta__overlay {
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+	background: linear-gradient(135deg, rgba(82, 67, 47, 0.94), rgba(107, 88, 64, 0.86));
+}
+
+.rafah-cta__title {
+	color: var(--rafah-white);
+	font-size: clamp(26px, 4vw, 40px);
+	font-weight: 800;
+	margin: 0 0 14px;
+}
+
+.rafah-cta__text {
+	color: rgba(255, 255, 255, 0.85);
+	font-size: 17px;
+	line-height: 1.8;
+	max-width: 56ch;
+	margin: 0 auto 32px;
+}
+
+.rafah-cta__actions {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 14px;
+}
+
+/* ------------------------------------------------------------- Units: stats strip */
+
+.rafah-ustats {
+	margin-bottom: 26px;
+}
+
+.rafah-ustats__bar {
+	display: flex;
+	height: 12px;
+	border-radius: 6px;
+	overflow: hidden;
+	background: var(--rafah-bg);
+}
+
+.rafah-ustats__bar span {
+	display: block;
+	height: 100%;
+	transition: width 0.6s ease;
+}
+
+.rafah-ustats__legend {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px 22px;
+	margin-top: 12px;
+	font-size: 13.5px;
+	color: var(--rafah-muted);
+	font-weight: 600;
+}
+
+.rafah-ustats__item i {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	border-radius: 3px;
+	margin-inline-end: 6px;
+}
+
+/* ------------------------------------------------------------- Units: comparison table */
+
+.rafah-units-front__controls {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+	margin-bottom: 18px;
+}
+
+.rafah-units-front__controls input,
+.rafah-units-front__controls select {
+	height: auto !important;
+	min-height: 48px;
+	line-height: 1.5 !important;
+	padding: 11px 16px !important;
+	border: 1.5px solid var(--rafah-line);
+	border-radius: var(--rafah-radius-sm);
+	background-color: var(--rafah-surface);
+	font-size: 14px;
+	min-width: 200px;
+	appearance: none;
+	text-overflow: ellipsis;
+}
+
+.rafah-units-front__controls input:focus,
+.rafah-units-front__controls select:focus {
+	outline: none;
+	border-color: var(--rafah-primary);
+	box-shadow: 0 0 0 3px rgba(188, 148, 93, 0.18);
+}
+
+.rafah-units-front {
+	width: 100%;
+	max-width: 100%;
+	min-width: 0;
+}
+
+.rafah-units-front__scroll {
+	border: 1px solid var(--rafah-line);
+	border-radius: var(--rafah-radius-sm);
+	/* ~20 rows tall, then scroll vertically; scrolls horizontally inside the box */
+	max-height: 760px;
+	max-width: 100%;
+	overflow: auto;
+}
+
+.rafah-units-fronttable {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 14px;
+	background: var(--rafah-white);
+}
+
+.rafah-units-fronttable thead th {
+	position: sticky;
+	top: 0;
+	z-index: 2;
+	background: var(--rafah-secondary);
+	color: var(--rafah-white);
+	font-weight: 700;
+	text-align: start;
+	padding: 13px 16px;
+	white-space: nowrap;
+	font-size: 13.5px;
+}
+
+.rafah-units-front__grouprow th {
+	top: 0;
+	background: var(--rafah-secondary-dark);
+	text-align: center;
+	font-size: 12.5px;
+	color: #e8cfa8;
+	padding: 8px 16px;
+}
+
+.rafah-units-front__grouprow ~ tr th,
+.rafah-units-fronttable thead tr:nth-child(2) th {
+	top: 33px;
+}
+
+.rafah-units-fronttable th.is-sortable {
+	cursor: pointer;
+	user-select: none;
+}
+
+.rafah-units-fronttable th.is-sortable:hover {
+	color: #e8cfa8;
+}
+
+.rafah-units-fronttable tbody td {
+	padding: 13px 16px;
+	border-bottom: 1px solid rgba(107, 88, 64, 0.1);
+	color: #4a4234;
+	vertical-align: middle;
+}
+
+.rafah-units-fronttable tbody tr {
+	transition: background 0.15s ease;
+}
+
+.rafah-units-fronttable tbody tr:hover {
+	background: #fbf7f1;
+}
+
+.rafah-units-fronttable td small {
+	display: block;
+	color: var(--rafah-muted);
+	font-size: 12px;
+}
+
+.rafah-units-front__price {
+	font-weight: 800;
+	color: var(--rafah-primary);
+	white-space: nowrap;
+}
+
+.rafah-ubadge {
+	display: inline-block;
+	padding: 5px 14px;
+	border-radius: 999px;
+	font-size: 12.5px;
+	font-weight: 700;
+	color: var(--ubadge, #999);
+	background: color-mix(in srgb, var(--ubadge, #999) 12%, white);
+	border: 1px solid color-mix(in srgb, var(--ubadge, #999) 35%, white);
+	white-space: nowrap;
+}
+
+.rafah-units-front__yes { color: #2e9e5b; font-weight: 800; }
+.rafah-units-front__no { color: #c9beac; }
+
+.rafah-units-front__none {
+	text-align: center;
+	color: var(--rafah-muted);
+	padding: 30px;
+	margin: 0;
+}
+
+/* Mobile: keep a compact, horizontally-scrollable table with a frozen unit
+ * column so many units stay easy to compare side by side (cards stacked
+ * vertically make comparison hard once you have 30-40+ units). */
+@media (max-width: 760px) {
+	.rafah-units-front__scroll {
+		max-height: 72vh;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	.rafah-units-fronttable {
+		font-size: 13px;
+	}
+
+	.rafah-units-fronttable thead th,
+	.rafah-units-fronttable tbody td {
+		padding: 10px 12px;
+	}
+
+	/* Freeze the first column (unit number) during horizontal scroll */
+	.rafah-units-fronttable thead th:first-child,
+	.rafah-units-fronttable tbody td:first-child {
+		position: sticky;
+		inset-inline-start: 0;
+		z-index: 3;
+		background: var(--rafah-white);
+		box-shadow: 2px 0 6px -2px rgba(107, 88, 64, 0.18);
+	}
+
+	[dir="rtl"] .rafah-units-fronttable thead th:first-child,
+	[dir="rtl"] .rafah-units-fronttable tbody td:first-child {
+		box-shadow: -2px 0 6px -2px rgba(107, 88, 64, 0.18);
+	}
+
+	.rafah-units-fronttable thead th:first-child {
+		z-index: 4;
+		background: var(--rafah-secondary);
+	}
+}
+
+/* ------------------------------------------------------------- Scroll animations
+ *
+ * Fully gated behind body.rafah-anim (added only when animations are enabled
+ * in Settings → Rafah). Without that class NOTHING here applies — the site
+ * renders pixel-identical with all content visible. Timing comes from CSS
+ * variables set by the plugin (--rafah-anim-duration / --rafah-anim-stagger).
+ */
+
+.rafah-anim .rafah-reveal {
+	opacity: 0;
+	transition:
+		opacity var(--rafah-anim-duration, 700ms) cubic-bezier(0.22, 0.61, 0.36, 1),
+		translate var(--rafah-anim-duration, 700ms) cubic-bezier(0.22, 0.61, 0.36, 1),
+		scale var(--rafah-anim-duration, 700ms) cubic-bezier(0.22, 0.61, 0.36, 1);
+	transition-delay: var(--rafah-anim-delay, 0ms);
+	will-change: opacity, translate;
+}
+
+/* Style variants (body class from settings) */
+.rafah-anim--fade-up .rafah-reveal {
+	translate: 0 28px;
+}
+
+.rafah-anim--slide-up .rafah-reveal {
+	translate: 0 56px;
+}
+
+.rafah-anim--scale .rafah-reveal {
+	scale: 0.94;
+}
+
+/* Per-section accents: heroes always fade only (no jumpy movement) */
+.rafah-anim .rafah-reveal--soft {
+	translate: 0 12px !important;
+	scale: none !important;
+}
+
+.rafah-anim .rafah-reveal.is-visible {
+	opacity: 1;
+	translate: 0 0;
+	scale: 1;
+	will-change: auto;
+}
+
+/* Reduced motion: everything visible, no transitions — always wins */
+@media (prefers-reduced-motion: reduce) {
+	.rafah-anim .rafah-reveal {
+		opacity: 1 !important;
+		translate: none !important;
+		scale: none !important;
+		transition: none !important;
+	}
+
+	.rafah-card,
+	.rafah-agent-card,
+	.rafah-btn {
+		transition: none;
+	}
+}
+
+/* ------------------------------------------------------------- Status tabs */
+
+.rafah-status-tabs {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 10px;
+	margin-bottom: 28px;
+}
+
+.rafah-status-tab {
+	padding: 12px 28px;
+	border: 1.5px solid var(--rafah-line);
+	border-radius: 999px;
+	background: var(--rafah-white);
+	color: var(--rafah-secondary);
+	font-size: 14.5px;
+	font-weight: 700;
+	cursor: pointer;
+	transition: all var(--rafah-transition);
+}
+
+.rafah-status-tab:hover {
+	border-color: var(--rafah-primary);
+	color: var(--rafah-primary);
+}
+
+.rafah-status-tab.is-active {
+	background: var(--rafah-primary);
+	border-color: var(--rafah-primary);
+	color: var(--rafah-white);
+	box-shadow: 0 8px 20px -8px rgba(188, 148, 93, 0.55);
+}
+
+/* ------------------------------------------------------------- News section
+ * Layered composition: large image with an elevated content card overlapping
+ * it — Rafah identity, generous whitespace, strong hierarchy. */
+
+.rafah-news__feature {
+	display: grid;
+	grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+	align-items: center;
+	margin-bottom: 44px;
+}
+
+.rafah-news__feature-media {
+	display: block;
+	border-radius: var(--rafah-radius);
+	overflow: hidden;
+	aspect-ratio: 16 / 11;
+	box-shadow: var(--rafah-shadow);
+}
+
+.rafah-news__feature-media img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform 0.6s ease;
+}
+
+.rafah-news__feature:hover .rafah-news__feature-media img {
+	transform: scale(1.04);
+}
+
+.rafah-news__feature-card {
+	position: relative;
+	z-index: 2;
+	background: var(--rafah-white);
+	border-radius: var(--rafah-radius);
+	box-shadow: var(--rafah-shadow-lg);
+	padding: clamp(28px, 4vw, 48px);
+	margin-inline-start: -72px;
+}
+
+.rafah-news__chip {
+	display: inline-block;
+	background: rgba(188, 148, 93, 0.14);
+	color: var(--rafah-primary);
+	font-size: 13px;
+	font-weight: 700;
+	padding: 7px 16px;
+	border-radius: 999px;
+	margin-bottom: 16px;
+}
+
+.rafah-news__feature-title {
+	font-size: clamp(21px, 2.6vw, 30px);
+	line-height: 1.4;
+	margin: 0 0 14px;
+	font-weight: 800;
+}
+
+.rafah-news__feature-title a {
+	color: var(--rafah-secondary);
+	text-decoration: none;
+	transition: color var(--rafah-transition);
+}
+
+.rafah-news__feature-title a:hover {
+	color: var(--rafah-primary);
+}
+
+.rafah-news__excerpt {
+	color: var(--rafah-muted);
+	line-height: 1.9;
+	font-size: 15.5px;
+	margin: 0 0 18px;
+}
+
+.rafah-news__date {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	color: var(--rafah-muted);
+	font-size: 13.5px;
+	margin-bottom: 24px;
+}
+
+.rafah-news__grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+	gap: 24px;
+	margin-bottom: 40px;
+}
+
+.rafah-news__mini {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	background: var(--rafah-white);
+	border-radius: var(--rafah-radius-sm);
+	box-shadow: var(--rafah-shadow);
+	padding: 14px;
+	text-decoration: none;
+	transition: transform var(--rafah-transition), box-shadow var(--rafah-transition);
+}
+
+.rafah-news__mini:hover {
+	transform: translateY(-4px);
+	box-shadow: var(--rafah-shadow-lg);
+}
+
+.rafah-news__mini-thumb {
+	flex-shrink: 0;
+	width: 92px;
+	height: 76px;
+	border-radius: 10px;
+	overflow: hidden;
+	background: var(--rafah-bg);
+}
+
+.rafah-news__mini-thumb img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.rafah-news__mini-date {
+	color: var(--rafah-muted);
+	font-size: 12.5px;
+	margin-bottom: 4px;
+}
+
+.rafah-news__mini-title {
+	color: var(--rafah-secondary);
+	font-size: 15px;
+	font-weight: 700;
+	line-height: 1.5;
+	margin: 0;
+}
+
+.rafah-news__footer {
+	text-align: center;
+}
+
+@media (max-width: 880px) {
+	.rafah-news__feature {
+		grid-template-columns: 1fr;
+	}
+
+	.rafah-news__feature-card {
+		margin-inline-start: 20px;
+		margin-inline-end: 20px;
+		margin-top: -56px;
+	}
+}
+
+@media (max-width: 640px) {
+	.rafah-grid {
+		gap: 20px;
+	}
+
+	.rafah-hero__inner {
+		padding-block: 90px 70px;
+	}
+
+	.rafah-btn {
+		padding: 13px 24px;
+		font-size: 14px;
+	}
+}
+
+/* ------------------------------------------------------------- Project Gallery widget */
+.rafah-project-gallery { margin: 0; }
+.rafah-project-gallery__title {
+	font-size: 22px;
+	color: var(--rafah-secondary);
+	margin: 0 0 18px;
+}
+/* ---- Project Gallery: responsive horizontal carousel -------------------- */
+.rafah-gallery { --rafah-gcols: 3; position: relative; }
+.rafah-gallery--cols-2 { --rafah-gcols: 2; }
+.rafah-gallery--cols-3 { --rafah-gcols: 3; }
+.rafah-gallery--cols-4 { --rafah-gcols: 4; }
+
+.rafah-gallery__viewport {
+	overflow-x: auto;
+	overflow-y: hidden;
+	scroll-snap-type: x mandatory;
+	scroll-behavior: smooth;
+	-webkit-overflow-scrolling: touch;
+	scrollbar-width: none;
+}
+.rafah-gallery__viewport::-webkit-scrollbar { display: none; }
+
+.rafah-gallery__track {
+	display: flex;
+	gap: 14px;
+	margin: 0;
+	padding: 4px 2px;
+	list-style: none;
+}
+.rafah-gallery__slide {
+	flex: 0 0 calc((100% - (var(--rafah-gcols) - 1) * 14px) / var(--rafah-gcols));
+	scroll-snap-align: start;
+}
+
+.rafah-gallery__item {
+	position: relative;
+	display: block;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background: #efe8df;
+	overflow: hidden;
+	border-radius: var(--rafah-radius-sm, 12px);
+	aspect-ratio: 4 / 3;
+	cursor: zoom-in;
+}
+.rafah-gallery__item--video { cursor: pointer; }
+.rafah-gallery__item img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+	transition: transform 0.5s ease;
+}
+.rafah-gallery__item:hover img,
+.rafah-gallery__item:focus-visible img { transform: scale(1.06); }
+.rafah-gallery__item:focus-visible { outline: 3px solid var(--rafah-primary); outline-offset: 2px; }
+
+.rafah-gallery__videobg { position: absolute; inset: 0; background: linear-gradient(135deg, var(--rafah-secondary), var(--rafah-primary)); }
+.rafah-gallery__play {
+	position: absolute;
+	inset: 0;
+	margin: auto;
+	width: 58px;
+	height: 58px;
+	display: grid;
+	place-items: center;
+	border-radius: 50%;
+	background: rgba(0, 0, 0, 0.45);
+	color: #fff;
+	backdrop-filter: blur(2px);
+	transition: transform 0.3s ease, background 0.3s ease;
+}
+.rafah-gallery__play svg { width: 26px; height: 26px; margin-inline-start: 3px; }
+.rafah-gallery__item--video:hover .rafah-gallery__play { background: var(--rafah-primary); transform: scale(1.08); }
+
+.rafah-gallery__nav {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 44px;
+	height: 44px;
+	padding: 0;
+	line-height: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 0;
+	border-radius: 50%;
+	background: rgba(255, 255, 255, 0.96);
+	color: var(--rafah-secondary);
+	box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
+	cursor: pointer;
+	z-index: 3;
+	transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+}
+.rafah-gallery__nav:hover { background: var(--rafah-primary); color: #fff; }
+.rafah-gallery__nav svg { display: block; width: 22px; height: 22px; }
+.rafah-gallery__nav--prev { inset-inline-start: -10px; }
+.rafah-gallery__nav--next { inset-inline-end: -10px; }
+.rafah-gallery__nav[hidden] { display: none; }
+[dir="rtl"] .rafah-gallery__nav svg { transform: scaleX(-1); }
+
+@media (max-width: 1024px) and (min-width: 681px) {
+	.rafah-gallery--cols-3, .rafah-gallery--cols-4 { --rafah-gcols: 2; }
+}
+@media (max-width: 680px) {
+	.rafah-gallery__slide { flex-basis: 84%; }   /* one at a time, next peeks */
+	.rafah-gallery__nav { width: 38px; height: 38px; }
+}
+
+/* ---- Lightbox (shared, built once by JS; dependency-free) --------------- */
+.rafah-lightbox {
+	position: fixed;
+	inset: 0;
+	z-index: 100000;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: clamp(12px, 4vw, 48px);
+	background: rgba(20, 16, 12, 0.92);
+	backdrop-filter: blur(6px);
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.28s ease, visibility 0.28s ease;
+}
+.rafah-lightbox.is-open { opacity: 1; visibility: visible; }
+body.rafah-lightbox-open { overflow: hidden; }
+
+.rafah-lightbox__stage {
+	position: relative;
+	max-width: min(1200px, 100%);
+	max-height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 12px;
+}
+.rafah-lightbox__media { display: flex; align-items: center; justify-content: center; max-width: 100%; }
+.rafah-lightbox__media img {
+	max-width: 100%;
+	max-height: 82vh;
+	object-fit: contain;
+	border-radius: 6px;
+	box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+	transition: transform 0.3s ease;
+	cursor: zoom-in;
+}
+.rafah-lightbox.is-zoomed .rafah-lightbox__media img { transform: scale(2); cursor: zoom-out; }
+
+.rafah-lightbox__video { position: relative; width: min(1100px, 92vw); aspect-ratio: 16 / 9; max-height: 82vh; }
+.rafah-lightbox__video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; border-radius: 6px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5); }
+
+.rafah-lightbox__caption { color: rgba(255, 255, 255, 0.9); font-size: 14px; text-align: center; max-width: 80ch; }
+.rafah-lightbox__counter { position: absolute; top: clamp(10px, 3vw, 20px); inset-inline-start: clamp(12px, 4vw, 28px); color: rgba(255, 255, 255, 0.85); font-size: 13px; font-weight: 600; letter-spacing: 0.03em; direction: ltr; unicode-bidi: isolate; }
+
+.rafah-lightbox__btn {
+	position: absolute;
+	padding: 0;
+	line-height: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 0;
+	border-radius: 50%;
+	background: rgba(255, 255, 255, 0.12);
+	color: #fff;
+	cursor: pointer;
+	transition: background 0.2s ease, transform 0.2s ease;
+	z-index: 4;
+}
+.rafah-lightbox__btn:hover { background: var(--rafah-primary); transform: scale(1.05); }
+.rafah-lightbox__btn[hidden] { display: none; }
+.rafah-lightbox__btn svg { display: block; }
+.rafah-lightbox__close { top: clamp(10px, 3vw, 20px); inset-inline-end: clamp(12px, 4vw, 28px); width: 46px; height: 46px; }
+.rafah-lightbox__close svg { width: 22px; height: 22px; }
+.rafah-lightbox__zoom { top: clamp(10px, 3vw, 20px); inset-inline-end: clamp(66px, 12vw, 84px); width: 46px; height: 46px; }
+.rafah-lightbox__zoom svg { width: 21px; height: 21px; }
+.rafah-lightbox__nav { top: 50%; transform: translateY(-50%); width: 52px; height: 52px; }
+.rafah-lightbox__nav svg { width: 26px; height: 26px; }
+/* Preserve vertical centering on hover (the base translateY(-50%) must stay). */
+.rafah-lightbox__nav:hover { transform: translateY(-50%) scale(1.05); }
+.rafah-lightbox__nav--prev { inset-inline-start: clamp(8px, 3vw, 26px); }
+.rafah-lightbox__nav--next { inset-inline-end: clamp(8px, 3vw, 26px); }
+[dir="rtl"] .rafah-lightbox__nav svg { transform: scaleX(-1); }
+
+@media (max-width: 680px) {
+	.rafah-lightbox__nav { width: 42px; height: 42px; }
+	.rafah-lightbox__media img { max-height: 74vh; }
+}
+@media (prefers-reduced-motion: reduce) {
+	.rafah-gallery__viewport { scroll-behavior: auto; }
+	.rafah-lightbox, .rafah-lightbox__media img, .rafah-gallery__item img { transition: none; }
+}
+
+/* ------------------------------------------------------------- Projects Map widget */
+.rafah-map {
+	width: 100%;
+	min-height: 240px;
+	border-radius: var(--rafah-radius-sm, 12px);
+	overflow: hidden;
+	z-index: 0;
+	background: #e8e2d9;
+}
+.rafah-map-pin { background: transparent; border: 0; }
+.rafah-map-pin svg { filter: drop-shadow(0 3px 4px rgba(43, 36, 26, 0.35)); }
+
+.leaflet-popup-content-wrapper { border-radius: 12px; padding: 0; overflow: hidden; }
+.leaflet-popup-content { margin: 0; width: 220px !important; }
+.rafah-map-popup { font-family: inherit; }
+.rafah-map-popup__img { display: block; }
+.rafah-map-popup__img img { width: 100%; height: 120px; object-fit: cover; display: block; }
+.rafah-map-popup__body { padding: 12px 14px; text-align: start; }
+.rafah-map-popup__city {
+	display: block;
+	font-size: 12px;
+	color: var(--rafah-muted, #8a7d6a);
+	margin-bottom: 2px;
+}
+.rafah-map-popup__title {
+	display: block;
+	font-size: 15px;
+	font-weight: 800;
+	color: var(--rafah-secondary, #6b5840) !important;
+	text-decoration: none;
+	line-height: 1.4;
+}
+.rafah-map-popup__title:hover { color: var(--rafah-primary, #bc945d) !important; }
+.rafah-map-popup__link {
+	display: inline-block;
+	margin-top: 8px;
+	font-size: 13px;
+	font-weight: 700;
+	color: var(--rafah-primary, #bc945d) !important;
+	text-decoration: none;
+}
+.rafah-map-popup__link::after { content: " →"; }
+[dir="rtl"] .rafah-map-popup__link::after { content: " ←"; }
+
+/* Editor-only hint when a widget has no data to show */
+.rafah-widget-hint {
+	padding: 22px;
+	text-align: center;
+	color: #8a7d6a;
+	background: #faf6f0;
+	border: 1px dashed #d9c7ad;
+	border-radius: 10px;
+}
+
+/* ------------------------------------------------------------- Blog section (Posts) */
+.rafah-blog { margin: 0; }
+.rafah-blog__grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 28px;
+}
+.rafah-blog__footer {
+	text-align: center;
+	margin-top: 44px;
+}
+
+.rafah-blog-card {
+	display: flex;
+	flex-direction: column;
+	background: var(--rafah-white);
+	border-radius: var(--rafah-radius, 16px);
+	overflow: hidden;
+	box-shadow: var(--rafah-shadow);
+	transition: transform var(--rafah-transition), box-shadow var(--rafah-transition);
+}
+.rafah-blog-card:hover {
+	transform: translateY(-6px);
+	box-shadow: var(--rafah-shadow-lg);
+}
+.rafah-blog-card__media {
+	display: block;
+	aspect-ratio: 16 / 10;
+	overflow: hidden;
+	background: #efe8df;
+}
+.rafah-blog-card__media img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform 0.6s ease;
+}
+.rafah-blog-card:hover .rafah-blog-card__media img { transform: scale(1.06); }
+.rafah-blog-card__body {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	padding: 22px 24px 24px;
+	flex: 1;
+}
+.rafah-blog-card__cat {
+	align-self: flex-start;
+	font-size: 12.5px;
+	font-weight: 700;
+	color: var(--rafah-primary);
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+}
+.rafah-blog-card__title {
+	font-size: 20px;
+	line-height: 1.4;
+	margin: 0;
+	font-weight: 700;
+}
+.rafah-blog-card__title a {
+	color: var(--rafah-secondary);
+	text-decoration: none;
+	transition: color var(--rafah-transition);
+}
+.rafah-blog-card__title a:hover { color: var(--rafah-primary); }
+.rafah-blog-card__excerpt {
+	color: var(--rafah-muted);
+	font-size: 14.5px;
+	line-height: 1.8;
+	margin: 0;
+	flex: 1;
+}
+.rafah-blog-card__foot {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	margin-top: 6px;
+	padding-top: 14px;
+	border-top: 1px solid var(--rafah-line);
+}
+.rafah-blog-card__date {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	color: var(--rafah-muted);
+	font-size: 12.5px;
+}
+.rafah-blog-card__more {
+	font-size: 13.5px;
+	font-weight: 700;
+	color: var(--rafah-primary);
+	text-decoration: none;
+	white-space: nowrap;
+}
+.rafah-blog-card__more::after { content: " →"; }
+[dir="rtl"] .rafah-blog-card__more::after { content: " ←"; }
+
+@media (max-width: 900px) {
+	.rafah-blog__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+	.rafah-blog__grid { grid-template-columns: 1fr; }
+}
+
+/* ------------------------------------------------------------- Cover placeholder (no image) */
+.rafah-cover-ph {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	display: grid;
+	place-items: center;
+	background:
+		radial-gradient(120% 120% at 50% 0%, rgba(188, 148, 93, 0.12), transparent 60%),
+		linear-gradient(135deg, #f2ece3, #e4dccf);
+	color: var(--rafah-primary, #bc945d);
+}
+.rafah-cover-ph svg { width: 44px; height: 44px; opacity: 0.55; }
+.rafah-project-hero__bg .rafah-cover-ph { background: linear-gradient(135deg, #efe7db, #d9cdbb); }
+.rafah-project-hero__bg .rafah-cover-ph svg { width: 88px; height: 88px; opacity: 0.4; }
+
+/* ------------------------------------------------------------- Project Details grid */
+.rafah-details-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	gap: 14px;
+	margin-top: 6px;
+}
+.rafah-detail {
+	background: var(--rafah-surface, #f7f3ee);
+	border: 1px solid var(--rafah-line, rgba(107, 88, 64, 0.12));
+	border-radius: 12px;
+	padding: 14px 16px;
+}
+.rafah-detail__label {
+	font-size: 12.5px;
+	color: var(--rafah-muted, #8a7d6a);
+	margin-bottom: 4px;
+}
+.rafah-detail__value {
+	font-size: 15.5px;
+	font-weight: 700;
+	color: var(--rafah-secondary, #6b5840);
+	line-height: 1.4;
+}
+
+/* ------------------------------------------------------------- Virtual tour CTA */
+.rafah-tour-cta { margin-top: 14px; }
+.rafah-tour-cta .rafah-btn svg { margin-inline-start: 6px; }
+
+/* ---- Unit status row highlight (public units table) — gated by the "Highlight
+   Sold Units on Frontend" setting (body.rafah-unit-hl, added only on the front
+   end when that toggle is on). Independent of the admin Units Manager highlight.
+   Sold = light red, reserved = subtle, available = none. */
+body.rafah-unit-hl .rafah-units-fronttable tbody tr[data-status="reserved"] td { background: rgba(201, 57, 43, 0.05); }
+body.rafah-unit-hl .rafah-units-fronttable tbody tr[data-status="sold"] td { background: rgba(201, 57, 43, 0.11); }
+body.rafah-unit-hl .rafah-units-fronttable tbody tr[data-status="reserved"]:hover td { background: rgba(201, 57, 43, 0.08); }
+body.rafah-unit-hl .rafah-units-fronttable tbody tr[data-status="sold"]:hover td { background: rgba(201, 57, 43, 0.15); }
+
+/* Generic button group (repeater-driven; only rendered when it has items) */
+.rafah-btn-group { display: flex; flex-wrap: wrap; gap: 14px; }

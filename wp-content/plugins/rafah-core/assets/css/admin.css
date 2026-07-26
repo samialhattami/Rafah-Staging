@@ -1,0 +1,294 @@
+/* Rafah Core — Admin meta box UI */
+
+.rafah-metabox {
+	margin: -6px -12px -12px;
+	display: flex;
+	min-height: 320px;
+}
+
+/* Tabs */
+.rafah-tabs {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	min-width: 190px;
+	background: #f6f3ef;
+	border-inline-end: 1px solid #e4dcd5;
+	padding: 12px 8px;
+}
+
+.rafah-tab {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 9px 12px;
+	border: 0;
+	border-radius: 8px;
+	background: transparent;
+	color: #6b5840;
+	font-size: 13px;
+	font-weight: 500;
+	text-align: start;
+	cursor: pointer;
+	transition: background 0.15s ease, color 0.15s ease;
+}
+
+.rafah-tab .dashicons {
+	font-size: 17px;
+	width: 17px;
+	height: 17px;
+}
+
+.rafah-tab:hover {
+	background: #ede7df;
+}
+
+.rafah-tab.is-active {
+	background: #bc945d;
+	color: #fff;
+}
+
+/* Panels */
+.rafah-panel {
+	display: none;
+	flex: 1;
+	padding: 20px 24px;
+}
+
+.rafah-panel.is-active {
+	display: block;
+}
+
+/* Fields */
+.rafah-field {
+	display: grid;
+	grid-template-columns: 200px 1fr;
+	gap: 16px;
+	padding: 14px 0;
+	border-bottom: 1px solid #f0ebe4;
+	align-items: start;
+}
+
+.rafah-field:last-child {
+	border-bottom: 0;
+}
+
+.rafah-field__label {
+	font-weight: 600;
+	color: #3d3428;
+	padding-top: 5px;
+}
+
+.rafah-field__desc {
+	margin: 6px 0 0;
+	color: #8a7d6a;
+	font-size: 12px;
+}
+
+.rafah-input {
+	max-width: 420px;
+}
+
+.rafah-input--number {
+	width: 140px;
+}
+
+/* Toggle switch */
+.rafah-switch {
+	position: relative;
+	display: inline-block;
+	width: 44px;
+	height: 24px;
+}
+
+.rafah-switch input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+.rafah-switch__track {
+	position: absolute;
+	inset: 0;
+	background: #cfc6b9;
+	border-radius: 24px;
+	transition: background 0.2s ease;
+}
+
+.rafah-switch__track::before {
+	content: "";
+	position: absolute;
+	width: 18px;
+	height: 18px;
+	inset-inline-start: 3px;
+	top: 3px;
+	background: #fff;
+	border-radius: 50%;
+	transition: transform 0.2s ease;
+}
+
+.rafah-switch input:checked + .rafah-switch__track {
+	background: #bc945d;
+}
+
+.rafah-switch input:checked + .rafah-switch__track::before {
+	transform: translateX(20px);
+}
+
+[dir="rtl"] .rafah-switch input:checked + .rafah-switch__track::before {
+	transform: translateX(-20px);
+}
+
+/* Media picker */
+.rafah-media__preview img {
+	max-width: 120px;
+	height: auto;
+	border-radius: 8px;
+	display: block;
+	margin-bottom: 8px;
+	border: 1px solid #e4dcd5;
+}
+
+.rafah-media__filename {
+	display: inline-block;
+	margin-inline-end: 8px;
+	font-style: italic;
+	color: #6b5840;
+}
+
+/* Gallery */
+.rafah-gallery__list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin: 0 0 10px;
+	padding: 0;
+	list-style: none;
+}
+
+.rafah-gallery__item {
+	position: relative;
+	margin: 0;
+	cursor: grab;
+}
+
+.rafah-gallery__item img {
+	width: 90px;
+	height: 68px;
+	object-fit: cover;
+	border-radius: 8px;
+	border: 1px solid #e4dcd5;
+	display: block;
+}
+
+.rafah-gallery__remove {
+	position: absolute;
+	top: -6px;
+	inset-inline-end: -6px;
+	width: 20px;
+	height: 20px;
+	border: 0;
+	border-radius: 50%;
+	background: #b32d2e;
+	color: #fff;
+	font-size: 13px;
+	line-height: 1;
+	cursor: pointer;
+}
+
+/* Repeater */
+.rafah-repeater__row {
+	display: flex;
+	gap: 10px;
+	align-items: stretch;
+	background: #faf8f5;
+	border: 1px solid #e9e2d8;
+	border-radius: 10px;
+	padding: 12px;
+	margin-bottom: 10px;
+}
+
+.rafah-repeater__handle {
+	display: flex;
+	align-items: center;
+	color: #b9ad9a;
+	cursor: grab;
+}
+
+.rafah-repeater__fields {
+	flex: 1;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+}
+
+.rafah-subfield {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	min-width: 150px;
+	flex: 1;
+}
+
+.rafah-subfield--textarea {
+	flex-basis: 100%;
+}
+
+.rafah-subfield__label {
+	font-size: 12px;
+	font-weight: 600;
+	color: #6b5840;
+}
+
+.rafah-repeater__remove {
+	border: 0;
+	background: transparent;
+	color: #b32d2e;
+	cursor: pointer;
+	align-self: center;
+}
+
+.rafah-repeater__add .dashicons {
+	vertical-align: text-bottom;
+	margin-inline-end: 2px;
+}
+
+.rafah-repeater__template {
+	display: none;
+}
+
+/* Progress bar in list table */
+.rafah-progress {
+	width: 90px;
+	height: 6px;
+	background: #e4dcd5;
+	border-radius: 3px;
+	overflow: hidden;
+	margin-bottom: 3px;
+}
+
+.rafah-progress span {
+	display: block;
+	height: 100%;
+	background: #bc945d;
+	border-radius: 3px;
+}
+
+/* Responsive */
+@media (max-width: 782px) {
+	.rafah-metabox {
+		flex-direction: column;
+	}
+
+	.rafah-tabs {
+		flex-direction: row;
+		flex-wrap: wrap;
+		border-inline-end: 0;
+		border-bottom: 1px solid #e4dcd5;
+	}
+
+	.rafah-field {
+		grid-template-columns: 1fr;
+		gap: 6px;
+	}
+}
